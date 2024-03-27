@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20240327173517",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ballerina",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "classLevel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pointeShoeBrand",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pointeShoeSize",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ballerina",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

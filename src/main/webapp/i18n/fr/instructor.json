@@ -1,0 +1,26 @@
+{
+  "balletApp": {
+    "instructor": {
+      "home": {
+        "title": "Instructors",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Instructor",
+        "createOrEditLabel": "Créer ou éditer un Instructor",
+        "notFound": "Aucun Instructor trouvé"
+      },
+      "created": "Un nouveau Instructor a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Instructor avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Instructor avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Instructor {{ id }} ?"
+      },
+      "detail": {
+        "title": "Instructor"
+      },
+      "id": "Id",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email"
+    }
+  }
+}

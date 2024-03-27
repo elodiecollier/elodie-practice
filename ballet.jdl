@@ -1,0 +1,24 @@
+
+entity Ballerina {
+	id Long
+	firstName String required
+    lastName String required
+    email String required
+    classLevel Integer
+    pointeShoeBrand String
+    pointeShoeSize Integer
+}
+
+entity Instructor {
+	id Long
+	firstName String required
+    lastName String required
+    email String required
+}
+
+ 
+
+
+
+
+

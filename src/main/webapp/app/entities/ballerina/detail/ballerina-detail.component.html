@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ballerina">
+      <h2 data-cy="ballerinaDetailsHeading"><span jhiTranslate="balletApp.ballerina.detail.title">Ballerina</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="balletApp.ballerina.id">Id</span></dt>
+        <dd>
+          <span>{{ ballerina.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="balletApp.ballerina.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ ballerina.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="balletApp.ballerina.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ ballerina.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="balletApp.ballerina.email">Email</span></dt>
+        <dd>
+          <span>{{ ballerina.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="balletApp.ballerina.classLevel">Class Level</span></dt>
+        <dd>
+          <span>{{ ballerina.classLevel }}</span>
+        </dd>
+        <dt><span jhiTranslate="balletApp.ballerina.pointeShoeBrand">Pointe Shoe Brand</span></dt>
+        <dd>
+          <span>{{ ballerina.pointeShoeBrand }}</span>
+        </dd>
+        <dt><span jhiTranslate="balletApp.ballerina.pointeShoeSize">Pointe Shoe Size</span></dt>
+        <dd>
+          <span>{{ ballerina.pointeShoeSize }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ballerina', ballerina.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div>
+  <h2 id="page-heading" data-cy="BallerinaHeading">
+    <span jhiTranslate="balletApp.ballerina.home.title">Ballerinas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="balletApp.ballerina.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ballerina"
+        [routerLink]="['/ballerina/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="balletApp.ballerina.home.createLabel"> Create a new Ballerina </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="ballerinas?.length === 0">
+    <span jhiTranslate="balletApp.ballerina.home.notFound">No Ballerinas found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="ballerinas && ballerinas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="classLevel">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.classLevel">Class Level</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pointeShoeBrand">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.pointeShoeBrand">Pointe Shoe Brand</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pointeShoeSize">
+            <div class="d-flex">
+              <span jhiTranslate="balletApp.ballerina.pointeShoeSize">Pointe Shoe Size</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ballerina of ballerinas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/ballerina', ballerina.id, 'view']">{{ ballerina.id }}</a>
+          </td>
+          <td>{{ ballerina.firstName }}</td>
+          <td>{{ ballerina.lastName }}</td>
+          <td>{{ ballerina.email }}</td>
+          <td>{{ ballerina.classLevel }}</td>
+          <td>{{ ballerina.pointeShoeBrand }}</td>
+          <td>{{ ballerina.pointeShoeSize }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/ballerina', ballerina.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/ballerina', ballerina.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(ballerina)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

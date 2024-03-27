@@ -48,6 +48,8 @@ public class CacheConfiguration {
             createCache(cm, org.jhipster.ballet.domain.User.class.getName());
             createCache(cm, org.jhipster.ballet.domain.Authority.class.getName());
             createCache(cm, org.jhipster.ballet.domain.User.class.getName() + ".authorities");
+            createCache(cm, org.jhipster.ballet.domain.Ballerina.class.getName());
+            createCache(cm, org.jhipster.ballet.domain.Instructor.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
